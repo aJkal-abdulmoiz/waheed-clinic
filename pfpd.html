@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF/PD - Waleed Tahir Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>PF/PD Information</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="patient.html">Patient</a></li>
+                <li><a href="pci.html">PC/I</a></li>
+                <li><a href="hopi.html">HOPI</a></li>
+                <li><a href="past-medical.html">Past Med</a></li>
+                <li><a href="pfpd.html">PF/PD</a></li>
+                <li><a href="rx.html">Rx</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <img src="logo.png" alt="Clinic Logo">
+            <ul>
+                <li><a href="#" id="searchPatientLink">Search Patient</a></li>
+            </ul>
+        </aside>
+        <main>
+            <div id="status" style="margin-top: 10px; font-weight: bold;"></div>
+            <div class="alert" id="alertBox">Please fill in all required fields.</div>
+            <h2>PF/PD Details</h2>
+            <div class="input-group">
+                <label for="pfpdDetails">Details</label>
+                <textarea id="pfpdDetails" class="input-field address-field" placeholder="Enter PF/PD details" required></textarea>
+            </div>
+            <div class="flex-button">
+                <button type="button" id="saveBtn" class="save-button" onclick="savePFPDData()">Save</button>
+                <a href="rx.html"><button type="button" class="save-button" id="nextBtn" style="display: none;">Next</button></a>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function savePFPDData() {
+            const pfpdDetails = document.getElementById('pfpdDetails').value;
+
+            // Clear the alert message
+            const alertBox = document.getElementById('alertBox');
+            alertBox.classList.remove('show');
+
+            // Validate required fields
+            if (!pfpdDetails) {
+                alertBox.classList.add('show');
+                setTimeout(() => {
+                    alertBox.classList.remove('show');
+                }, 2000);
+                return;
+            }
+
+            // Save data to local storage
+            localStorage.setItem('pfpdData', JSON.stringify({ pfpdDetails }));
+
+            // Show a success status
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = 'PF/PD data saved successfully!';
+
+                // Hide the Save button and show the Next button
+            document.getElementById('saveBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'inline-block';
+        }
+    </script>
+
+<script src="load_record.js"></script>
+
+</body>
+</html>

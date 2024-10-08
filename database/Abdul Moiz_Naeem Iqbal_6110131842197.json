@@ -1,0 +1,37 @@
+{
+  "patientData": {
+    "patientName": "Abdul Moiz",
+    "so": "Naeem Iqbal",
+    "dateToday": "2024-10-08",
+    "dob": "2024-10-09",
+    "age": "20",
+    "cnic": "6110131842197",
+    "sex": "male",
+    "occupation": "Student",
+    "address": "Islamabad",
+    "phone": "03348537793",
+    "email": "abdul@gmail.com",
+    "emergencyContact": "0512334187",
+    "bloodPressure": "",
+    "pulseRate": "",
+    "respiratoryRate": "",
+    "temperature": "",
+    "weight": "",
+    "knownAllergies": "No known allergies"
+  },
+  "pciData": {
+    "pciDetails": "pci"
+  },
+  "hopiData": {
+    "hopiDetails": "hopi"
+  },
+  "pastMedicalData": {
+    "pastMedicalDetails": "Past Medical Details"
+  },
+  "pfpdData": {
+    "pfpdDetails": "Provisional Finding"
+  },
+  "rxData": {
+    "rxDetails": "daily Running"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .alert {
+            margin-top: 10px;
+        }
+        .table th, .table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Search Patient</h1>
+    <div class="container mt-4">
+        <div class="form-group">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" class="form-control" id="patientName" placeholder="Enter Patient Name">
+        </div>
+        <div class="form-group">
+            <label for="fatherName">Father Name:</label>
+            <input type="text" class="form-control" id="fatherName" placeholder="Enter Father's Name">
+        </div>
+        <div class="form-group">
+            <label for="cnic">CNIC:</label>
+            <input type="number" class="form-control" id="cnic" placeholder="Enter CNIC">
+        </div>
+        <button id="searchButton" class="btn btn-primary">Search</button>
+        <div id="alertBox" class="alert alert-danger" style="display: none;">No data found!</div>
+        <div id="status"></div>
+
+        <!-- Table to display patient data -->
+        <div class="mt-4">
+            <h2 class="text-center">Patient Details</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Father Name</th>
+                        <th>CNIC</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="patientTableBody">
+                    <!-- Patient rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="search.js"></script>
+</body>
+</html>

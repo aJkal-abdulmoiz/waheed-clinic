@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Waleed Tahir Clinic</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your existing CSS file -->
+</head>
+<body>
+
+    <header>
+        <h1>Waheed Clinic</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="patient.html">Patient</a></li>
+                <li><a href="pci.html">PC/I</a></li>
+                <li><a href="hopi.html">HOPI</a></li>
+                <li><a href="past-medical.html">Past Med</a></li>
+                <li><a href="pfpd.html">PF/PD</a></li>
+                <li><a href="rx.html">Rx</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <img src="Logo.png" alt="Clinic Logo">
+            <ul>
+                <li><a href="search-patient.html" id="searchPatientLink">Search Patient</a></li>
+                <!-- <li><a href="#" id="seeHistoryLink">See History</a></li>
+                <li><a href="#" id="downloadDbLink">Download Database</a></li> -->
+            </ul>
+        </aside>
+
+        <main style="display: flex; justify-content: center; justify-content: space-between; flex-direction: column;">
+            <h1 style="text-align: center;" >Welcome to the Waleed Tahir Clinic</h1>
+            <p style="text-align: center;"></p>
+
+            <div class="flex-button">
+                <button style="
+                width: 20%;
+                height: 65%;
+            " type="button" class="save-button" onclick="addNewPatient()">Add new Patient</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // JavaScript for the Home page
+        console.log("Welcome to the Home page!");
+
+        function addNewPatient(){
+            // Clear local storage if needed
+            localStorage.clear();
+
+            // // Uncomment to redirect after saving
+            window.location.href = "patient.html";
+        }
+    </script>
+
+</body>
+</html>

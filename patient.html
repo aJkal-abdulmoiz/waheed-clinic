@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient - Waleed Tahir Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Patient Information</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="patient.html">Patient</a></li>
+            <li><a href="pci.html">PC/I</a></li>
+            <li><a href="hopi.html">HOPI</a></li>
+            <li><a href="past-medical.html">Past Med</a></li>
+            <li><a href="pfpd.html">PF/PD</a></li>
+            <li><a href="rx.html">Rx</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <aside>
+        <h2 style="margin-bottom: 13px !important;">Vitals</h2>
+        <div class="input-group">
+            <label for="bloodPressure">Blood Pressure</label>
+            <input type="text" id="bloodPressure" class="input-field" placeholder="Enter blood pressure">
+        </div>
+        <div class="input-group">
+            <label for="pulseRate">Pulse Rate</label>
+            <input type="text" id="pulseRate" class="input-field" placeholder="Enter pulse rate">
+        </div>
+        <div class="input-group">
+            <label for="respiratoryRate">Respiratory Rate</label>
+            <input type="text" id="respiratoryRate" class="input-field" placeholder="Enter respiratory rate">
+        </div>
+        <div class="input-group">
+            <label for="temperature">Temperature</label>
+            <input type="text" id="temperature" class="input-field" placeholder="Enter temperature">
+        </div>
+        <div class="input-group">
+            <label for="weight">Weight</label>
+            <input type="text" id="weight" class="input-field" placeholder="Enter weight">
+        </div>
+        <div class="input-group">
+            <label for="knownAllergies">Known Allergies</label>
+            <input type="text" id="knownAllergies" class="input-field" value="No known allergies">
+        </div>
+    </aside>
+
+    <main>
+        <div id="status" style="margin-top: 10px; font-weight: bold;"></div>
+        <div class="alert" id="alertBox">Please fill in all required fields.</div>
+        <form id="patientForm">
+            <div class="input-group">
+                <div>
+                    <label for="patientName">Patient Name</label>
+                    <input type="text" id="patientName" class="input-field long" placeholder="Enter Patient Name" required>
+                </div>
+                <div>
+                    <label for="so">S/O</label>
+                    <input type="text" id="so" class="input-field long" placeholder="S/O">
+                </div>
+                <div>
+                    <label for="dateToday">Date</label>
+                    <input type="date" id="dateToday" class="input-field long" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" class="input-field long" required>
+                </div>
+                <div>
+                    <label for="age">Age</label>
+                    <input type="text" id="age" class="input-field short" placeholder="Age" style="width: 80px;">
+                </div>
+                <div>
+                    <label for="cnic">CNIC</label>
+                    <input type="text" id="cnic" class="input-field long" placeholder="cnic" style="width: 80px;">
+                </div>
+                <div>
+                    <label for="sex">Sex</label>
+                    <select id="sex" class="input-field short" required>
+                        <option value="" disabled selected>Select Sex</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <div>
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" class="input-field long" placeholder="Occupation">
+                </div>
+            </div>
+            <div class="input-group">
+                <div>
+                    <label for="address">Address</label>
+                    <textarea id="address" class="input-field address-field" placeholder="Address" required></textarea>
+                </div>
+            </div>
+            <div class="input-group">
+                <div>
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" class="input-field medium" placeholder="Phone" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="input-field medium" placeholder="Email">
+                </div>
+                <div>
+                    <label for="emergencyContact">Emergency Contact</label>
+                    <input type="text" id="emergencyContact" class="input-field medium" placeholder="Emergency Contact">
+                </div>
+            </div>
+        </form>
+        
+        <div class="flex-button">
+            <button type="button" class="next-button" id="saveBtn" onclick="savePatientData()">Save</button>
+            <a href="pci.html"><button type="button" class="save-button" id="nextBtn" style="display: none;">Next</button></a>
+        </div>
+
+    </main>
+</div>
+
+<script>
+   function savePatientData() {
+    console.log('Save button clicked'); // Debugging line
+    const patientName = document.getElementById('patientName').value;
+    const so = document.getElementById('so').value;
+    const dateToday = document.getElementById('dateToday').value;
+    const dob = document.getElementById('dob').value;
+    const age = document.getElementById('age').value;
+    const cnic = document.getElementById('cnic').value;
+    const sex = document.getElementById('sex').value;
+    const occupation = document.getElementById('occupation').value;
+    const address = document.getElementById('address').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const emergencyContact = document.getElementById('emergencyContact').value;
+    const bloodPressure = document.getElementById('bloodPressure').value;
+    const pulseRate = document.getElementById('pulseRate').value;
+    const respiratoryRate = document.getElementById('respiratoryRate').value;
+    const temperature = document.getElementById('temperature').value;
+    const weight = document.getElementById('weight').value;
+    const knownAllergies = document.getElementById('knownAllergies').value;
+
+    // Clear the alert message
+    const alertBox = document.getElementById('alertBox');
+    alertBox.classList.remove('show');
+
+    // Validate required fields (only for main form)
+    if (!patientName || !dateToday || !dob || !sex || !address || !phone) {
+        alertBox.classList.add('show', 'shake'); // Add shake class
+        console.log('Validation failed'); // Debugging line
+        
+        // Hide the alert after 2 seconds
+        setTimeout(() => {
+            alertBox.classList.remove('show');
+        }, 2000); // 2000 ms = 2 seconds
+        
+        return;
+    }
+
+    // Create an object to hold the data
+    const patientData = {
+        patientName,
+        so,
+        dateToday,
+        dob,
+        age,
+        cnic,
+        sex,
+        occupation,
+        address,
+        phone,
+        email,
+        emergencyContact,
+        bloodPressure,
+        pulseRate,
+        respiratoryRate,
+        temperature,
+        weight,
+        knownAllergies
+    };
+
+    // Save data to local storage
+    localStorage.setItem('patientData', JSON.stringify(patientData));
+
+    // Show a success status
+    const statusDiv = document.getElementById('status');
+    statusDiv.textContent = 'Patient data saved successfully!';
+    console.log('Data saved:', patientData); // Debugging line
+
+    // Hide the Save button and show the Next button
+    document.getElementById('saveBtn').style.display = 'none';
+    document.getElementById('nextBtn').style.display = 'inline-block';
+}
+
+</script>
+
+<script src="load_record.js"></script>
+
+</body>
+</html>

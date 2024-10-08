@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            padding-top: 85px;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .footer{
+            margin-top: 80px;
+            line-height: 5px;
+            
+        }
+        .header h1, .footer h1 {
+            font-size: 24px;
+            margin: 0;
+            
+        }
+        .header h2, .footer h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+        .content {
+            display: flex;
+            margin-top: 20px;
+        }
+        .vitals {
+            width: 15%;
+            padding-right: 20px;
+            border-right: 2px solid #000;
+        }
+        .patient-info {
+            width: 65%;
+            padding-left: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h3 {
+            font-size: 19px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        .section p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .info-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+        .info-grid .column {
+            width: 48%;
+        }
+        .medical-history{
+            margin-bottom: 10px;
+        }
+        .medical-history p {
+            margin: 5px 0;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .column p{
+            margin-bottom: 10px;
+        }
+        hr {
+            border: 1px solid #000;
+            margin: 20px 0;
+        }
+        .print-button {
+            background-color: #1679AB;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        @media print {
+        .print-button {
+            display: none;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>NOT VALID FOR MEDICOLEGAL CERTIFICATE AND THE COURT OF LAW</h3>
+        </div>
+
+        <div class="content">
+            <div class="vitals">
+                <div class="section">
+                    <h3>Vitals</h3>
+                    <p><span class="label">Blood Pressure:</span> <span id="bloodPressure">N/A</span></p>
+                    <p><span class="label">Pulse Rate:</span> <span id="pulseRate">N/A</span></p>
+                    <p><span class="label">Respiratory Rate:</span> <span id="respiratoryRate">N/A</span></p>
+                    <p><span class="label">Temperature:</span> <span id="temperature">N/A</span></p>
+                    <p><span class="label">Weight:</span> <span id="weight">N/A</span></p>
+                </div>
+            </div>
+
+            <div class="patient-info">
+                <div class="section">
+                    <h3>Personal Information</h3>
+                    <div class="info-grid">
+                        <div class="column">
+                            <p><span class="label">Name:</span> <span id="patientName">N/A</span></p>
+                            <p><span class="label">Date Today:</span> <span id="dateToday">N/A</span></p>
+                            <p><span class="label">Age:</span> <span id="age">N/A</span></p>
+                            <p><span class="label">Occupation:</span> <span id="occupation">N/A</span></p>
+                            <p><span class="label">Contact:</span> <span id="contact">N/A</span></p>
+                        </div>
+                        <div class="column">
+                            <p><span class="label">Father's Name:</span> <span id="fatherName">N/A</span></p>
+                            <p><span class="label">Date of Birth:</span> <span id="dob">N/A</span></p>
+                            <p><span class="label">Gender:</span> <span id="gender">N/A</span></p>
+                            <p><span class="label">Address:</span> <span id="address">N/A</span></p>
+                            <p><span class="label">Email:</span> <span id="email">N/A</span></p>
+                            <p><span class="label">Emergency Contact:</span> <span id="emergencyContact">N/A</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="medical-history">
+                    <p><span class="label">PCI Details:</span> <span id="pciDetails">N/A</span></p>
+                    <p><span class="label">HOPI Details:</span> <span id="hopiDetails">N/A</span></p>
+                    <p><span class="label">Past Medical Details:</span> <span id="pastMedicalDetails">N/A</span></p>
+                    <p><span class="label">PFPD Details:</span> <span id="pfpdDetails">N/A</span></p>
+                    <p><span class="label">RX Details:</span> <span id="rxDetails">No prescription details available</span></p>
+                    <p><span class="label">Known Allergies:</span> <span id="allergies">N/A</span></p>
+                </div>
+                
+                <hr>
+
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <p>Dr. Muhammad Waleed Tahir, General Practitioner</p>
+            <p>Registrar Department of Emergency Medicine, Sadiq Abbasi Hospital Bahawalpur</p>
+            <p>PMC No. 114939-P</p>
+            <p>Contact: 0321-7482502 | Email: dr.muhammadwaleedtahir@gmail.com</p>
+        </div>
+
+        <button class="print-button" onclick="window.print();">Print Information</button>
+        <a href="patient.html"><button class="print-button">Home</button></a>
+    </div>  
+
+    <script>
+        const patientData = JSON.parse(localStorage.getItem('patientData')) || {};
+        const pciData = JSON.parse(localStorage.getItem('pciData')) || {};
+        const hopiData = JSON.parse(localStorage.getItem('hopiData')) || {};
+        const pastMedicalData = JSON.parse(localStorage.getItem('pastMedicalData')) || {};
+        const pfpdData = JSON.parse(localStorage.getItem('pfpdData')) || {};
+        const rxData = JSON.parse(localStorage.getItem('rxData')) || {};
+
+        document.getElementById('dateToday').textContent = patientData.dateToday || 'N/A';
+        document.getElementById('patientName').textContent = patientData.patientName || 'N/A';
+        document.getElementById('fatherName').textContent = patientData.so || 'N/A';
+        document.getElementById('dob').textContent = patientData.dob || 'N/A';
+        document.getElementById('age').textContent = patientData.age || 'N/A';
+        document.getElementById('gender').textContent = patientData.sex || 'N/A';
+        document.getElementById('occupation').textContent = patientData.occupation || 'N/A';
+        document.getElementById('address').textContent = patientData.address || 'N/A';
+        document.getElementById('contact').textContent = patientData.phone || 'N/A';
+        document.getElementById('email').textContent = patientData.email || 'N/A';
+        document.getElementById('emergencyContact').textContent = patientData.emergencyContact || 'N/A';
+        document.getElementById('allergies').textContent = patientData.knownAllergies || 'N/A';
+
+        document.getElementById('bloodPressure').textContent = patientData.bloodPressure || 'N/A';
+        document.getElementById('pulseRate').textContent = patientData.pulseRate || 'N/A';
+        document.getElementById('respiratoryRate').textContent = patientData.respiratoryRate || 'N/A';
+        document.getElementById('temperature').textContent = patientData.temperature || 'N/A';
+        document.getElementById('weight').textContent = patientData.weight || 'N/A';
+
+        document.getElementById('pciDetails').textContent = pciData.pciDetails || 'N/A';
+        document.getElementById('hopiDetails').textContent = hopiData.hopiDetails || 'N/A';
+        document.getElementById('pastMedicalDetails').textContent = pastMedicalData.pastMedicalDetails || 'N/A';
+        document.getElementById('pfpdDetails').textContent = pfpdData.pfpdDetails || 'N/A';
+        document.getElementById('rxDetails').textContent = rxData.rxDetails || 'No prescription details available';
+
+
+
+    </script>
+</body>
+</html>

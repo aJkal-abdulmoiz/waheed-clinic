@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOPI - Waleed Tahir Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>HOPI Information</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="patient.html">Patient</a></li>
+                <li><a href="pci.html">PC/I</a></li>
+                <li><a href="hopi.html">HOPI</a></li>
+                <li><a href="past-medical.html">Past Med</a></li>
+                <li><a href="pfpd.html">PF/PD</a></li>
+                <li><a href="rx.html">Rx</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <img src="logo.png" alt="Clinic Logo">
+            <ul>
+                <li><a href="#" id="searchPatientLink">Search Patient</a></li>
+                <!-- <li><a href="#" id="seeHistoryLink">See History</a></li>
+                <li><a href="#" id="downloadDbLink">Download Database</a></li> -->
+            </ul>
+        </aside>
+
+        <main>
+            <h2>HOPI Details</h2>
+            <div class="input-group">
+                <label for="hopiDetails">Details</label>
+                <textarea id="hopiDetails" class="input-field address-field" placeholder="Enter HOPI details" required></textarea>
+            </div>
+            <div id="status" style="margin-top: 10px; font-weight: bold;"></div>
+            <div class="alert" id="alertBox">Please fill in all required fields.</div>
+            <div class="flex-button">
+                <button type="button" id="saveBtn" class="save-button" onclick="saveHOPIDetails()">Save</button>
+                <a href="past-medical.html"><button type="button" class="save-button" id="nextBtn" style="display: none;">Next</button></a>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        function saveHOPIDetails() {
+            const hopiDetails = document.getElementById('hopiDetails').value;
+
+            // Clear the alert message
+            const alertBox = document.getElementById('alertBox');
+            alertBox.classList.remove('show');
+
+            // Validate required fields
+            if (!hopiDetails) {
+                alertBox.classList.add('show', 'shake');
+
+                // Hide the alert after 2 seconds
+                setTimeout(() => {
+                    alertBox.classList.remove('show');
+                }, 2000);
+                
+                return;
+            }
+
+            // Create an object to hold the data
+            const hopiData = {
+                hopiDetails
+            };
+
+            // Save data to local storage
+            localStorage.setItem('hopiData', JSON.stringify(hopiData));
+
+            // Show a success status
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = 'HOPI details saved successfully!';
+            console.log('Data saved:', hopiData); // Debugging line
+
+                // Hide the Save button and show the Next button
+            document.getElementById('saveBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'inline-block';
+        }
+    </script>
+<script src="load_record.js"></script>
+
+</body>
+</html>

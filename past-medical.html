@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Medical - Waleed Tahir Clinic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Past Medical Information</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="patient.html">Patient</a></li>
+                <li><a href="pci.html">PC/I</a></li>
+                <li><a href="hopi.html">HOPI</a></li>
+                <li><a href="past-medical.html">Past Med</a></li>
+                <li><a href="pfpd.html">PF/PD</a></li>
+                <li><a href="rx.html">Rx</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <img src="logo.png" alt="Clinic Logo">
+            <ul>
+                <li><a href="#" id="searchPatientLink">Search Patient</a></li>
+                <!-- <li><a href="#" id="seeHistoryLink">See History</a></li>
+                <li><a href="#" id="downloadDbLink">Download Database</a></li> -->
+            </ul>
+        </aside>
+
+        <main>
+            <h2>Past Medical Details</h2>
+            <div class="input-group">
+                <label for="pastMedicalDetails">Details</label>
+                <textarea id="pastMedicalDetails" class="input-field address-field" placeholder="Enter Past Medical details" required></textarea>
+            </div>
+            <div class="flex-button">
+                <button type="button" id="saveBtn" class="save-button" onclick="savePastMedicalData()">Save</button>
+                <a href="pfpd.html"><button type="button" class="save-button" id="nextBtn" style="display: none;">Next</button></a>
+            </div>
+            <div id="status" style="margin-top: 10px; font-weight: bold;"></div>
+            <div class="alert" id="alertBox">Please fill in all required fields.</div>
+        </main>
+    </div>
+
+    <script>
+        function savePastMedicalData() {
+            const pastMedicalDetails = document.getElementById('pastMedicalDetails').value;
+
+            // Clear the alert message
+            const alertBox = document.getElementById('alertBox');
+            alertBox.classList.remove('show');
+
+            // Validate required fields
+            if (!pastMedicalDetails) {
+                alertBox.classList.add('show');
+                setTimeout(() => {
+                    alertBox.classList.remove('show');
+                }, 2000);
+                return;
+            }
+
+            // Save data to local storage
+            localStorage.setItem('pastMedicalData', JSON.stringify({ pastMedicalDetails }));
+
+            // Show a success status
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = 'Past Medical data saved successfully!';
+
+                        // Hide the Save button and show the Next button
+            document.getElementById('saveBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'inline-block';
+        }
+    </script>
+    
+<script src="load_record.js"></script>
+
+</body>
+</html>

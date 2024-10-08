@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rx - Waleed Tahir Clinic</title>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Rx Information</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="patient.html">Patient</a></li>
+                <li><a href="pci.html">PC/I</a></li>
+                <li><a href="hopi.html">HOPI</a></li>
+                <li><a href="past-medical.html">Past Med</a></li>
+                <li><a href="pfpd.html">PF/PD</a></li>
+                <li><a href="rx.html">Rx</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <img src="logo.png" alt="Clinic Logo">
+            <ul>
+                <li><a href="#" id="searchPatientLink">Search Patient</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>Rx Details</h2>
+            <div class="input-group">
+                <label for="rxDetails">Details</label>
+                <textarea id="rxDetails" class="input-field address-field" placeholder="Enter Rx details" required></textarea>
+            </div>
+            <div class="flex-button">
+                <button type="button" class="save-button" onclick="saveAllDataToJson()">Save</button>
+            </div>
+            <div class="flex-button">
+                <a href="print.html"><button type="button" class="print-button">Print</button></a>
+            </div>
+            <div id="status" style="margin-top: 10px; font-weight: bold;"></div>
+            <div class="alert" id="alertBox">Please fill in all required fields.</div>
+        </main>
+    </div>
+
+<script src="script.js" ></script>
+<script src="load_record.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+body {
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+header {
+    background-color: #1679AB;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+}
+/* Add styles for the translucent state */
+.saved {
+    opacity: 0.5; /* Change opacity to make it translucent */
+}
+
+/* Alert box styles */
+.alert {
+    display: none;
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
+
+.alert.show {
+    display: block; /* Show the alert */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li:not(:last-child)::after {
+    content: "|";
+    margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 80px); /* Adjust for header height */
+}
+
+.vitals-section {
+    margin-top: 20px;
+}
+
+aside {
+    background-color: #125A7A;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 225px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    overflow-y: auto;
+}
+
+aside img {
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li {
+    margin-bottom: 15px;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+aside ul li a:hover {
+    background-color: #0F4C6A;
+    color: #ffffff;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the start */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap; /* Wrap inputs to fit */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block; /* Stack labels above inputs */
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%; /* Ensure label occupies full width */
+}
+
+.input-field {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Consistent widths for input fields */
+.input-field.short {
+    width: 125px;/* Short width for smaller inputs */
+}
+
+.input-field.medium {
+    min-width: 200px; /* Medium width for medium-sized inputs */
+}
+
+.input-field.long {
+    flex: 1; /* Flexible for longer inputs */
+    
+    min-width: 300px; /* Minimum width for longer fields */
+}
+
+.address-field {
+    flex-basis: 100%;
+    height: 100px;
+    margin-right: 0;
+    min-width: 525px; /* Minimum width for address */
+}
+.flex-button{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.save-button {
+    background-color: #1679AB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px; /* Added margin for spacing */
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #0F4C6A;
+}
+.next-button {
+    background-color: #1679AB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px; /* Added margin for spacing */
+    transition: background-color 0.3s;
+}
+
+.next-button:hover {
+    background-color: #0F4C6A;
+}
+.print-button {
+    margin: 0 620px;
+    background-color: #1679AB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px; /* Added margin for spacing */
+    transition: background-color 0.3s;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column; /* Stack inputs on small screens */
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="date"],
+    .input-group select {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-5px); }
+    50% { transform: translate(5px); }
+    75% { transform: translate(-5px); }
+    100% { transform: translate(0); }
+}
+
+.alert.shake {
+    animation: shake 0.5s ease;
+}
+
+#status {
+    justify-content: center;
+    color: #3c763d; /* Dark green text */
+    padding: 10px 15px; /* Padding for the div */
+    border-radius: 5px; /* Rounded corners */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center align items vertically */
+    font-size: 14px; /* Font size */
+    margin-top: 10px; /* Space above */
+    transition: opacity 0.5s ease; /* Smooth fade out */
+}
+
+.checkmark {
+    margin-left: 10px; /* Space between text and checkmark */
+    font-size: 18px; /* Size of the checkmark */
+}

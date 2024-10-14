@@ -1,0 +1,37 @@
+{
+  "patientData": {
+    "patientName": "Waleed Tahir",
+    "so": "Tahir Waheed",
+    "dateToday": "2024-10-08",
+    "dob": "2024-10-09",
+    "age": "29",
+    "cnic": "1234",
+    "sex": "male",
+    "occupation": "Doctor",
+    "address": "BWP",
+    "phone": "2323",
+    "email": "23",
+    "emergencyContact": "23",
+    "bloodPressure": "",
+    "pulseRate": "",
+    "respiratoryRate": "",
+    "temperature": "",
+    "weight": "",
+    "knownAllergies": "No known allergies"
+  },
+  "pciData": {
+    "pciDetails": "12"
+  },
+  "hopiData": {
+    "hopiDetails": "12"
+  },
+  "pastMedicalData": {
+    "pastMedicalDetails": "12"
+  },
+  "pfpdData": {
+    "pfpdDetails": "12"
+  },
+  "rxData": {
+    "rxDetails": "12"
+  }
+}
